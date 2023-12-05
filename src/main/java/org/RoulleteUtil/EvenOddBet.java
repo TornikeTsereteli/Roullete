@@ -24,7 +24,7 @@ public class EvenOddBet implements Bet {
     public boolean isWinningBet(int luckyNumber) {
         validateUserLuckyNumber(luckyNumber);
         if (luckyNumber == 0) return false;
-        return isEven ? luckyNumber % 2 == 0 : luckyNumber % 2 == 1 ;
+        return isEven ? luckyNumber % 2 == 0 : luckyNumber % 2 == 1;
     }
 
     @Override
