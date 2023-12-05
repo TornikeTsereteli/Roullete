@@ -44,9 +44,9 @@ public class RouletteGame {
     private void addBalanceToPlayers(Scanner scanner) {
 
         for (Player p : players) {
-            System.out.println(p.getUserName() + " add money to your balance if you wish:");
+            System.out.println(p.getUserName() + " add money to your balance if you wish, if not insert 0:");
             int balance = scanner.nextInt();
-            while (balance <= 0) {
+            while (balance < 0) {
                 System.out.println("Dealer: You can't deposit negative NUmber, please insert positive integer!");
                 balance = scanner.nextInt();
             }
