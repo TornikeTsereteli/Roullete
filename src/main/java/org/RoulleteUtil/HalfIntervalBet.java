@@ -14,12 +14,16 @@ public class HalfIntervalBet implements Bet {
         if (betMoney < 0) throw new IllegalArgumentException("bet money should not be negative!");
     }
 
+    private void validateUserLuckyNumber(int usersLuckyNumber) {
+        if (usersLuckyNumber < 0 || usersLuckyNumber > 36) {
+            throw new IllegalArgumentException("lucky number should be in range [0,36]");
+        }
+    }
+
     @Override
     public boolean isWinningBet(int luckyNumber) {
-        if (isFirstHalf)
-            return luckyNumber > 0 && luckyNumber < 19;
-        else
-            return luckyNumber > 18 && luckyNumber < 37;
+        validateBetMoney(luckyNumber);
+        return isFirstHalf ? luckyNumber > 0 && luckyNumber < 19 : luckyNumber > 18 && luckyNumber < 37;
     }
 
     @Override

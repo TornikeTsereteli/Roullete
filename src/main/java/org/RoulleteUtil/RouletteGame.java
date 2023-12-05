@@ -1,9 +1,6 @@
 package org.RoulleteUtil;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RouletteGame {
 
@@ -14,9 +11,17 @@ public class RouletteGame {
     public RouletteGame(Roulette roulette, BetManager betManager) {
         this.roulette = roulette;
         this.betManager = betManager;
+
+    }
+
+    private static void validateLuckyNumber(int luckyNumber) {
+        if (luckyNumber < 0 || luckyNumber > 36) {
+            throw new IllegalArgumentException("lucky number must be in range [0-36]");
+        }
     }
 
     void notifyAllPlayers(int luckyNumber) {
+        validateLuckyNumber(luckyNumber);
         for (Player player : players) {
             player.addWinningMoneyToBalance(luckyNumber);
             player.showWinningMoney(luckyNumber);

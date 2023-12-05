@@ -26,8 +26,8 @@ public class Player {
     }
 
 
-    private void validateBetMoney(int betMoney){
-        if(betMoney<=0){
+    private void validateBetMoney(int betMoney) {
+        if (betMoney <= 0) {
             throw new IllegalArgumentException("bet Money should be positive number!!");
         }
     }
@@ -40,6 +40,7 @@ public class Player {
     }
 
     public void addBalance(int money) {
+        validateBetMoney(money);
         balance += money;
     }
 
@@ -84,7 +85,13 @@ public class Player {
                 return new HalfIntervalBet(betMoney, false);
             case NUMBER: {
                 System.out.println("Please Insert your Lucky Number:");
-                return new NumberBet(betMoney, new Scanner(System.in).nextInt());
+                Scanner scanner = new Scanner(System.in);
+                int luckyNumber = scanner.nextInt();
+                while (luckyNumber < 0 || luckyNumber > 37){
+                    System.out.println("your lucky number should be in range [0-36] please insert again:");
+                    luckyNumber = scanner.nextInt();
+                }
+                return new NumberBet(betMoney,luckyNumber);
             }
         }
         return null;
@@ -92,10 +99,10 @@ public class Player {
 
 
     private int getWinningMoney(int luckyNumber) {
+        validateLuckyNumber(luckyNumber);
         return bets.stream().filter(x -> x.isWinningBet(luckyNumber))
                 .mapToInt(Bet::getProfit).sum();
     }
-
 
 
     public void showWinningMoney(int luckyNumber) {
@@ -106,8 +113,14 @@ public class Player {
             System.out.println(userName + " have lost " + winningMoney + " Gel and his balance is " + balance + "GEL");
 
     }
+    private void validateLuckyNumber(int luckyNumber){
+        if(luckyNumber < 0 || luckyNumber > 36){
+            throw new IllegalArgumentException("lucky number should be in the range [0-36]");
+        }
+    }
 
     public void addWinningMoneyToBalance(int luckyNumber) {
+        validateBetMoney(luckyNumber);
         addBalance(getWinningMoney(luckyNumber));
     }
 

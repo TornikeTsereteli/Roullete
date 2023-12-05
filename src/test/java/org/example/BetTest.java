@@ -18,9 +18,11 @@ public class BetTest {
 
         assertTrue(evenBet.isWinningBet(6));
         assertFalse(evenBet.isWinningBet(7));
+        assertFalse(evenBet.isWinningBet(0));
 
         assertTrue(oddBet.isWinningBet(7));
         assertFalse(oddBet.isWinningBet(8));
+        assertFalse(evenBet.isWinningBet(0));
 
         assertEquals(20, evenBet.getProfit());
         assertEquals(30, oddBet.getProfit());
@@ -34,11 +36,13 @@ public class BetTest {
         assertTrue(firstHalfBet.isWinningBet(1));
         assertTrue(firstHalfBet.isWinningBet(18));
         assertTrue(firstHalfBet.isWinningBet(15));
+
         assertFalse(firstHalfBet.isWinningBet(20));
         assertFalse(firstHalfBet.isWinningBet(0));
         //second half Bet tests
+
+
         assertTrue(secondHalfBet.isWinningBet(36));
-//        assertFalse(secondHalfBet.isWinningBet(37));
         assertTrue(secondHalfBet.isWinningBet(25));
         assertFalse(secondHalfBet.isWinningBet(18));
 
@@ -52,20 +56,25 @@ public class BetTest {
         Bet mod1Bet = new ModThreeBet(25, 1);
         Bet mod2Bet = new ModThreeBet(15, 2);
 
-
+        // mod 0 tests
         assertTrue(mod0Bet.isWinningBet(12));
         assertTrue(mod0Bet.isWinningBet(6));
         assertFalse(mod0Bet.isWinningBet(7));
         assertFalse(mod0Bet.isWinningBet(0));
 
-
+        // mod 1 tests
         assertFalse(mod1Bet.isWinningBet(12));
         assertTrue(mod1Bet.isWinningBet(25));
+        assertFalse(mod1Bet.isWinningBet(0));
 
+
+        // mod2 tests
         assertFalse(mod2Bet.isWinningBet(25));
         assertTrue(mod2Bet.isWinningBet(8));
         assertFalse(mod2Bet.isWinningBet(9));
+        assertFalse(mod2Bet.isWinningBet(0));
 
+        // profit tests
         assertEquals(90, mod0Bet.getProfit());
         assertEquals(75, mod1Bet.getProfit());
         assertEquals(45, mod2Bet.getProfit());
@@ -75,8 +84,10 @@ public class BetTest {
     void numberBetWinningTest() {
         Bet numberBet = new NumberBet(50, 18);
 
+
         assertTrue(numberBet.isWinningBet(18));
         assertFalse(numberBet.isWinningBet(20));
+        assertThrows(IllegalArgumentException.class,()-> numberBet.isWinningBet(37));
 
         assertEquals(1800, numberBet.getProfit());
     }
@@ -88,10 +99,11 @@ public class BetTest {
 
         assertTrue(redBet.isWinningBet(8));
         assertFalse(redBet.isWinningBet(7));
+        assertFalse(redBet.isWinningBet(0));
 
         assertTrue(blackBet.isWinningBet(14));
         assertFalse(blackBet.isWinningBet(17));
-
+        assertFalse(blackBet.isWinningBet(0));
 
         assertEquals(60, redBet.getProfit());
         assertEquals(50, blackBet.getProfit());

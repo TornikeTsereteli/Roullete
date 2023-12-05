@@ -28,6 +28,7 @@ public class BetParser {
     }
 
     private static Bet createBet(String type, int amount) {
+
         // Implement logic to create specific Bet objects based on the type
         switch (type.toLowerCase()) {
             case "red":
@@ -50,21 +51,34 @@ public class BetParser {
                 return new ModThreeBet(amount, 2);
             case "firstinterval":
                 return new ThreeIntervalBet(amount, 1);
-            // Add more cases for other bet types
+
             case "secondinterval":
                 return new ThreeIntervalBet(amount, 2);
             case "thirdinterval":
                 return new ThreeIntervalBet(amount, 3);
 
             default:
+
+                if (isInteger(type.toLowerCase())) {
+                    return new NumberBet(amount, Integer.parseInt(type.toLowerCase()));
+                }
                 // Unknown bet type, handle accordingly
                 System.out.println("Unknown bet type: " + type);
                 return null;
         }
     }
 
+    private static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
-        String input = "(Red,12), (11,23), (31,100), (Odd,12)";
+        String input = "(red,12),(mod3equals1,23),(31,100),(Odd,12)";
         List<Bet> bets = parseBets(input);
 
         // Print the parsed bets

@@ -23,6 +23,7 @@ public class NumberBet implements Bet {
 
     @Override
     public boolean isWinningBet(int luckyNumber) {
+        validateUserLuckyNumber(luckyNumber);
         return luckyNumber == usersLuckyNumber;
     }
 
