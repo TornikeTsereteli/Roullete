@@ -4,7 +4,7 @@ This is a simple console-based Roulette game implemented in Java. Players can pl
 
 ## Features
 
-- Multiple bet types: RED, BLACK, ODD, EVEN, MOD3EQUALS0, MOD3EQUALS1, FIRSTINTERVAL, SECONDINTERVAL, FIRSTHALF,  SECONDHALF, NUMBER
+- Multiple bet types: RED, BLACK, ODD, EVEN, MOD3EQUALS0, MOD3EQUALS1, FIRSTINTERVAL, SECONDINTERVAL, THIRDINTERVAL, FIRSTHALF, SECONDHALF, NUMBER
 - Players can place bets on one or more types for each spin.
 - Winning money is added to the player's balance based on the winning bets.
 - after the roulette wheel determines the winning number, players can add money to their balance and make new bets.
