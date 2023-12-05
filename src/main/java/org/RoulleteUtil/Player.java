@@ -2,9 +2,19 @@ package org.RoulleteUtil;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.function.Function;
 
+/**
+   class represents a player participating in a roulette game.
+   Each player has a name, an initial balance, and the ability to place bets on the game.
+
+   example of usage:
+   Player player = new Player("player0", 100);
+
+   // Place bets on different types
+   player.placeBet(20, BetType.ODD);
+   player.placeBet(30, BetType.FIRSTINTERVAL);
+
+ */
 public class Player {
     private List<Bet> bets = new LinkedList<>();
     private final String userName;

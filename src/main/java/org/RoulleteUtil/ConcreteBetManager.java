@@ -2,6 +2,10 @@ package org.RoulleteUtil;
 
 import java.util.Scanner;
 
+/**
+   this class represents players
+ */
+
 public class ConcreteBetManager implements BetManager {
     public static final BetType[] POSSIBLE_BETS = BetType.values();
 
@@ -27,8 +31,10 @@ public class ConcreteBetManager implements BetManager {
             }
             System.out.println("please also insert the desirable amount of money to bet:");
             int betMoney = scanner.nextInt();
-            while (!player.canMakeBet(betMoney)) {
-                System.out.println("Dealer: sorry you can't make a bet :) your balance is " + player.getBalance());
+
+
+            while (betMoney<=0 || !player.canMakeBet(betMoney)) {
+                System.out.println("Dealer: you can't bet negative or zero amount of money or sorry you can't make a bet :) your balance is " + player.getBalance());
                 System.out.println("Dealer: please bet money again!");
                 betMoney = scanner.nextInt();
             }

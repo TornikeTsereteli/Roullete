@@ -2,6 +2,10 @@ package org.RoulleteUtil;
 
 import java.util.Scanner;
 
+/**
+   simple factory class for Bet creation
+ */
+
 public class SimpleBetFactory {
 
     public static Bet createBet(int betMoney, BetType betType) {

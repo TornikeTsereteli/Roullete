@@ -1,6 +1,15 @@
 package org.RoulleteUtil;
 
+
+/**
+   this class represent Even or Odd Bet
+   example of red bet:
+   Bet evenBet = new EvenOddBet(4,true);
+   example of black Bet:
+   Bet evenBet = new EvenOddBet(4,false);
+ */
 public class EvenOddBet implements Bet {
+
     private final boolean isEven;
     private final int betMoney;
 

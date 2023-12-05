@@ -2,6 +2,12 @@ package org.RoulleteUtil;
 
 import java.util.List;
 
+/**
+ * this represents it creates Red or Black Bet
+ * RedBlack class have two attributes: betmoney, isRed
+ * if isRed is true then Red Bet is created else Black Bet
+ */
+
 public class RedBlackBet implements Bet {
     private final boolean isRed;
     private final int betMoney;

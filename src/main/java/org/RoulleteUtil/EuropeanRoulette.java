@@ -1,8 +1,10 @@
 package org.RoulleteUtil;
 
 import java.util.Random;
-import java.util.random.RandomGenerator;
 
+/**
+   concrete implementation of Roulette wheel
+ */
 public class EuropeanRoulette implements Roulette {
     private int randomNumber;
 

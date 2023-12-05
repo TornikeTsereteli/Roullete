@@ -6,6 +6,10 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+   Bet Parser class:
+   takes such string (red,3),(even,4),(mod3equals0,8) and parses into bets
+ */
 public class BetParser {
 
     public static List<Bet> parseBets(String input) {
@@ -34,7 +38,6 @@ public class BetParser {
         String input = "(red,12),(mod3Equals1,23),(Number ,100),(Odd,12)";
         List<Bet> bets = parseBets(input);
 
-        // Print the parsed bets
         for (Bet bet : bets) {
             System.out.println("Type: " + bet.getClass().getSimpleName() + ", Amount: " + bet.getProfit());
         }

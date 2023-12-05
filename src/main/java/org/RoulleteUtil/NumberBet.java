@@ -1,5 +1,10 @@
 package org.RoulleteUtil;
 
+/**
+   this class represent number bet:
+   example:
+      Bet number3Bet = new NumberBet(20,3);
+ */
 public class NumberBet implements Bet {
     private final int usersLuckyNumber;
     private final int betMoney;

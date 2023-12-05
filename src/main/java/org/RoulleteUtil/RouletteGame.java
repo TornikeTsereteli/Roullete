@@ -2,6 +2,13 @@ package org.RoulleteUtil;
 
 import java.util.*;
 
+/**
+ class represents the main game logic for a roulette game.
+ It manages the interactions between players, the roulette wheel, and the bet manager during the game.
+
+ betManager and roulette are injected
+
+ */
 public class RouletteGame {
 
     private final Roulette roulette;

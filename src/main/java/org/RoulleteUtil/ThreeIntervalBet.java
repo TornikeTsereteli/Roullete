@@ -1,5 +1,12 @@
 package org.RoulleteUtil;
 
+/**
+  this class represents such bets
+  win if the number is in range [1-12]  example: Bet firstIntervalBet = new ThreeInterval(50,1);
+  win if the number is in range [13-24] example: Bet secondIntervalBet = new ThreeInterval(50,2);
+  win if the number is in range [25-36] example: Bet thirdIntervalBet = new ThreeInterval(50,3);
+
+ */
 public class ThreeIntervalBet implements Bet {
     private final int interval;
     private final int betMoney;

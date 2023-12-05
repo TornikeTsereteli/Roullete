@@ -1,7 +1,9 @@
 package org.RoulleteUtil;
 
-import java.util.Locale;
 
+/**
+  enum represents different types of bets that players can place in a roulette game.
+ */
 public enum BetType {
     RED("Red"),
     BLACK("Black"),

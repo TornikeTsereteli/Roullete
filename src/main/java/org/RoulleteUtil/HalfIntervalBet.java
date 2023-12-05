@@ -1,5 +1,12 @@
 package org.RoulleteUtil;
 
+/**
+   this class represents First half or Second Half Bet
+   example of First half bet
+   Bet bet = new HalfInterval(5,true);
+   example of second half bet:
+   Bet bet = new HalfInterval(9,false)
+ */
 public class HalfIntervalBet implements Bet {
     private final boolean isFirstHalf;
     private final int betMoney;
