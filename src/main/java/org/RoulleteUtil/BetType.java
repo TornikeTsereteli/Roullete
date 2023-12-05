@@ -1,5 +1,7 @@
 package org.RoulleteUtil;
 
+import java.util.Locale;
+
 public enum BetType {
     RED("Red"),
     BLACK("Black"),
@@ -28,7 +30,7 @@ public enum BetType {
 
     public static BetType fromString(String text) {
         for (BetType betType : BetType.values()) {
-            if (betType.label.equalsIgnoreCase(text)) {
+            if (betType.label.replace(" ", "").equalsIgnoreCase(text.replace(" ", ""))) {
                 return betType;
             }
         }

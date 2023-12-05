@@ -9,7 +9,7 @@ public class ConcreteBetManager implements BetManager {
         Scanner scanner = new Scanner(System.in);
         System.out.println(player.getUserName() + " make your bets:");
 
-        while (true){
+        while (true) {
             if (player.getBalance() <= 0) {
                 System.out.println("Dealer: sorry you can't make another bet :(, your balance is ZERO");
                 break;
@@ -18,7 +18,7 @@ public class ConcreteBetManager implements BetManager {
             System.out.println("insert your chosen bet:");
             int bet = scanner.nextInt();
 
-            if(bet == 13 || bet == -1){
+            if (bet == 13 || bet == -1) {
                 break;
             }
             while (bet < 0 || bet >= POSSIBLE_BETS.length) {

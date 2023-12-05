@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SimpleBetFactory {
 
-    private static Bet createBet(int betMoney, BetType betType) {
+    public static Bet createBet(int betMoney, BetType betType) {
         switch (betType) {
             case RED:
                 return new RedBlackBet(betMoney, true);
@@ -32,7 +32,13 @@ public class SimpleBetFactory {
                 return new HalfIntervalBet(betMoney, false);
             case NUMBER: {
                 System.out.println("Please Insert your Lucky Number:");
-                return new NumberBet(betMoney, new Scanner(System.in).nextInt());
+                Scanner scanner = new Scanner(System.in);
+                int luckyNumber = scanner.nextInt();
+                while (luckyNumber < 0 || luckyNumber > 37) {
+                    System.out.println("your lucky number should be in range [0-36] please insert again:");
+                    luckyNumber = scanner.nextInt();
+                }
+                return new NumberBet(betMoney, luckyNumber);
             }
         }
         return null;
