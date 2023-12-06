@@ -3,7 +3,7 @@ package org.RoulleteUtil;
 import java.util.Scanner;
 
 /**
-   this class represents players
+   this class represents players bet Manager strategy
  */
 
 public class ConcreteBetManager implements BetManager {
@@ -22,12 +22,12 @@ public class ConcreteBetManager implements BetManager {
             System.out.println("insert your chosen bet:");
             int bet = scanner.nextInt();
 
+            while (bet < -1 || bet > 13) {
+                System.out.println("sorry you can't bet on " + bet + "th, choose number from -1 to " + 13 + ":");
+                bet = scanner.nextInt();
+            }
             if (bet == 13 || bet == -1) {
                 break;
-            }
-            while (bet < 0 || bet >= POSSIBLE_BETS.length) {
-                System.out.println("sorry you can't bet on " + bet + "th, choose number from 0 to " + (POSSIBLE_BETS.length - 1) + ":");
-                bet = scanner.nextInt();
             }
             System.out.println("please also insert the desirable amount of money to bet:");
             int betMoney = scanner.nextInt();
